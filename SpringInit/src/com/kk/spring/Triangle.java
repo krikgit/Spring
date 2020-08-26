@@ -5,7 +5,6 @@ public class Triangle {
 	private String type;
 	private int length;
 	
-	
 	public Triangle(String type) {
 		this.type = type;
 	}
@@ -14,7 +13,6 @@ public class Triangle {
 		this.length = length;
 	}
 	
-
 	public Triangle(String type, int length) {
 		this.type = type;
 		this.length = length;
