@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>MyPage</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>Room</td>
+			<td>Name</td>
+			<td>Bed Info</td>
+		</tr>
+		<tr th:each="room :${room}">
+			<td th:text="${room.roomNo}"></td>
+			<td th:text="${room.floor}"></td>
+			<td th:text="${room.bedInfo}"></td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+	<bean id="triangle" class="com.krik.app.Triangle">
+		<property name="pointA" ref="point1"/>
+		<property name="pointB" ref="point2"/>
+		<property name="pointC" ref="point3"/> <!-- idref also can be used in between property to avoid exception -->
+	</bean>
+	<!-- We can also put the below bean in between property of triangle bean -->
+	<bean id="point1" class="com.krik.app.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	
+	<bean id="point2" class="com.krik.app.Point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+	
+	<bean id="point3" class="com.krik.app.Point">
+		<property name="x" value="0" />
+		<property name="y" value="20" />
+	</bean>
+        
+</beans>
