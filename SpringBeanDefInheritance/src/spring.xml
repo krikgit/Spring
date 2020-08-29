@@ -1,40 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
         
-    <bean id="parent" class="com.krik.app.Triangle">
-    	<property name="pointA" ref="point1"/>
-    </bean>
+    <bean id="triangle" class="com.krish.app.Triangle" autowire="byName" >
     
-    <!-- Inheritance of parent props -->
-     <bean id="parent1" class="com.krik.app.Triangle" parent="parent">
-    	<property name="pointB" ref="point2"/>
-		<property name="pointC" ref="point3"/>
-    </bean>
-    
-    <bean id="parent2" class="com.krik.app.Triangle" parent="parent">
-    	<property name="pointB" ref="point2"/>
     </bean>
         
-	<bean id="triangle" class="com.krik.app.Triangle">
-		<property name="pointA" ref="point1"/>
-		<property name="pointB" ref="point2"/>
-		<property name="pointC" ref="point3"/> <!-- idref also can be used in between property to avoid exception -->
-	</bean>
-	<!-- We can also put the below bean in between property of triangle bean -->
-	<bean id="point1" class="com.krik.app.Point">
+    <bean id="pointA" class="com.krish.app.Point" init-method="myInit">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
 	
-	<bean id="point2" class="com.krik.app.Point">
+	<bean id="pointB" class="com.krish.app.Point">
 		<property name="x" value="-20" />
 		<property name="y" value="0" />
 	</bean>
 	
-	<bean id="point3" class="com.krik.app.Point">
+	<bean id="pointC" class="com.krish.app.Point">
 		<property name="x" value="0" />
 		<property name="y" value="20" />
 	</bean>
