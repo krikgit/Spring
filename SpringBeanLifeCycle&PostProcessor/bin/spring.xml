@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+    <bean id="triangle" class="com.krik.app.Triangle" autowire="byName" init-method="initMethod" destroy-method="cleanUp"/>
+ 
+        
+    <bean id="pointA" class="com.krik.app.Point" >
+		<property name="x" value="${pointA.pointX}" />
+		<property name="y" value="${pointA.pointY}" />
+	</bean>
+	
+	<bean id="pointB" class="com.krik.app.Point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+	
+	<bean id="pointC" class="com.krik.app.Point">
+		<property name="x" value="0" />
+		<property name="y" value="20" />
+	</bean>
+      
+      <!-- BeanFactoryPostProcessor for Cofig -->
+     <bean class="com.krik.app.DemoBeanFactoryPostProcessor"/>  
+     
+     <!-- Post processing for Cofig -->
+     <bean class="com.krik.app.DemoPostProcessor"/>
+      
+      <!-- Data fetching from prop file -->
+     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+     	<property name="location" value="classpath:coordinates.properties"/>
+     </bean>
+</beans>

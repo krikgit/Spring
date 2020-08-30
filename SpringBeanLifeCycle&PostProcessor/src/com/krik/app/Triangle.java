@@ -3,7 +3,7 @@ package com.krik.app;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Triangle implements InitializingBean,DisposableBean{
+public class Triangle  implements InitializingBean,DisposableBean {
 	
 	private Point pointA;
 	private Point pointB;
@@ -35,8 +35,9 @@ public class Triangle implements InitializingBean,DisposableBean{
 	}
 	
 	
+	
 	  @Override public void afterPropertiesSet() throws Exception {
-	  System.out.println("InitializingBean: init method called in Triangle");
+	  System.out.println("\nInitializingBean: init method called in Triangle");
 	  
 	  }
 	  
@@ -44,6 +45,14 @@ public class Triangle implements InitializingBean,DisposableBean{
 	  System.out.println("DisposableBean: destroy method called in Triangle");
 	  
 	  }
+	 
+	  
+		
+		  public void initMethod() {
+		  System.out.println("Mannual Bean Initialization method"); }
+		  
+		  public void cleanUp() { System.out.println("Manual Bean Destroy method"); }
+		 
 	 
 	 
 }
