@@ -12,7 +12,6 @@ public class AopMain {
 		ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
 		System.out.println(shapeService.getCir().getShapeName());
 		((ClassPathXmlApplicationContext)context).close();
-
 	}
 
 }
