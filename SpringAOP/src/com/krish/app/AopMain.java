@@ -10,7 +10,9 @@ public class AopMain {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
-		System.out.println(shapeService.getCir().getShapeName());
+		//shapeService.getCir().setShapeName("To see the effect of args advice in aspect");
+		//shapeService.getCir().setShapeNameAndReturn("dummy from extra setter in circle ");
+		System.out.println("This is from main "+shapeService.getCir().getShapeName()); //print for annotation and main call
 		((ClassPathXmlApplicationContext)context).close();
 	}
 

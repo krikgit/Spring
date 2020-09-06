@@ -10,16 +10,25 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd">
         
-     <aop:aspectj-autoproxy/>
-     <context:component-scan base-package="com.krish.app.aspect"/>
+     <aop:aspectj-autoproxy/> <!-- As annotation of aspect is used -->
+     <context:component-scan base-package="com.krish.app.aspect"/> <!-- As @Component is used -->
      
 	<bean id="tri" class="com.krish.app.model.Triangle">
 		<property name="shapeName" value="This is a Triangle"/>
 	</bean>
 	<bean id="cir" class="com.krish.app.model.Circle">
-		<property name="shapeName" value="This is a Circle"/>
+		<!-- <property name="shapeName" value="This is a Circle"/> --> <!-- for error generation purpose -->
 	</bean>
 	<bean id="shapeService" class="com.krish.app.service.ShapeService" autowire="byName"/>
-
+	
+	<!-- Aspect config in xml -->
+	<!-- We are using annotation thats why its commented -->
+	<!-- <bean id="logAspect" class="com.krish.app.aspect.LogAspect"/>
+	<aop:config>
+		<aop:aspect id="logTheAspect" ref="logAspect"> used to replace @Aspect	
+			<aop:pointcut expression="execution(public * com.krish.app.model.Circle.get*())" id="allGetters"/>
+			<aop:before method="poincutDemo" pointcut-ref="allGetters"/>
+		</aop:aspect>	
+	</aop:config> -->
 
 </beans>

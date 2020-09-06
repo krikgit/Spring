@@ -4,6 +4,7 @@ package com.krish.app.service;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import com.krish.app.aspect.Logs;
 import com.krish.app.model.Circle;
 import com.krish.app.model.Triangle;
 
@@ -19,6 +20,7 @@ public class ShapeService {
 	public void setTri(Triangle tri) {
 		this.tri = tri;
 	}
+	@Logs //interface defined in aspect 
 	public Circle getCir() {
 		return cir;
 	}
